@@ -1,0 +1,233 @@
+---
+title: "NIPS Conference Analysis"
+subtitle: "Paper publishing patterns by various Organizations"
+abstract: |
+  NIPS is an international conference for machine learning and computational neuroscience. In the study, all published papers were gathered since the starting of the conference i.e., from 1987 to 2015. Subsequently, email ids of the authors has been extracted from all published papers. After the gathering, cleaning and the transformation of the data, I have performed pattern analysis of various Organization that have published the papers in the conference and the numbers of papers that have been published every year. 
+  
+output: pdf_document
+date: "`r format(Sys.time(), '%d %B, %Y')`" 
+author: | 
+  | Dinesh Daultani
+  | Illinois State University
+  
+---
+
+Introduction:
+============
+NIPS is an acronym for Neural Information Processing Systems (NIPS). NIPS is a conference on machine learning and computational neuroscience that is held every December. NIPS is also the topmost and most renowned conference for machine learning. NIPS conference was started in 1987 and has been continued since then. Other than machine learning and computational neuroscience, NIPS conference also represents papers in various categories such as computer vision, statistical linguistics, cognitive science, artificial intelligence, psychology and information theory.
+
+
+Languages Used:
+============
+The papers have been collected using Python scripts from nips website and R Programming language has been used for data cleaning, data transformation and graph plotting. Python scripts has been submitted with the other material.
+
+
+
+Data Cleaning and Tranformation:
+============
+
+Loading Libraries
+---------------------
+
+```{r, results='hide'}
+suppressMessages(library(ggplot2))
+suppressMessages(library(yaml))
+suppressMessages(library(dplyr))
+suppressMessages(library(stats))
+suppressMessages(library(graphics))
+suppressMessages(library(labeling))
+```
+
+\newpage
+
+Data
+---------------------
+There are total 3 files used to create the graphs and they are as follows:   
+1. Author.csv - Containing 5 columns namely 'ID', 'Author\_ID', 'Author\_Name', 'Author_Email', 'Year' representing unique id for each record, paper' author's ID, paper' author's name, his/her email ID and paper published year respectively.   
+2. Years.csv - Containing two columns namely 'Total_papers' representing total papers published in a year and 'Year' representing the year in which papers are published.   
+3. Organization Dictionary - Containing two columns namely 'University\_name' representing the names of organizations or universities and 'code' representing unique email address service provide URLs. For example:  Email id is - xyz@ilstu.edu, then 'Univeristy_name' contains 'Illinois State University' and code contains 'ilstu.edu'.
+
+```{r}
+# Authors file contains ID and Author_ID which is associated with the NIPS conference.
+# It also contains Author_Name, Author_Email and paper published year.
+Authors <- read.csv("Authors.csv", header = TRUE)
+# Years file contains total numbers of papers published in each year.
+year_dataset <- read.csv("Years.csv", header = TRUE)
+# Dictionary that contains university names and their email codes
+universities_dataset <- read.csv("OrganizationDictionary.csv", header = T)
+
+```
+
+### Here's the structure of all input files ###
+
+```{r}
+str(Authors)
+str(year_dataset)
+str(universities_dataset)
+```
+
+\newpage
+
+
+
+### Performing data transformation on Email ids. ###
+I am going to use specifically Email ID column to identify which organization/university have published most papers in the conference.
+As every email id contains some unique url after the @ symbol representing the organization/university name.  Hence I have splitted the string after the @ symbol in different column to do further manipulations in below chunk of code.
+
+```{r}
+# Splitting the email ids from @ symbol to compare the email provider organizations.
+Authors_new <- data.frame(do.call(rbind, strsplit(as.vector(Authors$Author_Email), split = "@")))
+Authors[ , "T_Email"] <- Authors_new[2]
+# Converting the Year column from int value to categorical values for easy grouping based on 'Year'.
+Authors$Year <- as.factor(Authors$Year)
+```
+
+There are some raw data in transformed Email column after splitting the email ID's. Hence filtering those records from the dataset.
+```{r, echo = FALSE}
+# Cleaning the raw email ids.
+Authors_new <- Authors
+Authors_new <- filter(Authors_new, !grepl("^2.67Ghz$", T_Email))
+Authors_new <- filter(Authors_new, grepl("\\.", T_Email))
+Authors_new <- filter(Authors_new, !grepl("^1$", T_Email))
+Authors_new <- filter(Authors_new, !grepl("^2$", T_Email))
+Authors_new <- filter(Authors_new, !grepl("^5$", T_Email))
+Authors_new <- filter(Authors_new, !grepl("^10$", T_Email))
+Authors_new <- filter(Authors_new, !grepl("^u$", T_Email))
+Authors_new <- filter(Authors_new, !grepl("^cs$", T_Email))
+Authors_new <- filter(Authors_new, !grepl("^eecs$", T_Email))
+Authors_new <- filter(Authors_new, !grepl("^csail.$", T_Email))
+Authors_new <- filter(Authors_new, !grepl("^stat$", T_Email))
+Authors_new <- filter(Authors_new, !grepl("^mail$", T_Email))
+Authors_new <- filter(Authors_new, !grepl("^mails$", T_Email))
+Authors_new <- filter(Authors_new, !grepl("^k$", T_Email))
+Authors_new <- filter(Authors_new, !grepl("^K$", T_Email))
+Authors_new <- filter(Authors_new, !grepl("^tx$", T_Email))
+Authors_new <- filter(Authors_new, !grepl("^ee$", T_Email))
+Authors_new <- filter(Authors_new, !grepl("^recall$", T_Email))
+Authors_new <- filter(Authors_new, !grepl("^Recall$", T_Email))
+Authors_new <- filter(Authors_new, !grepl("^hope.$", T_Email))
+Authors_new <- filter(Authors_new, !grepl("^.OOO$", T_Email))
+Authors_new <- filter(Authors_new, !grepl("^y$", T_Email))
+Authors_new <- filter(Authors_new, !grepl("^cns.$", T_Email))
+Authors <- Authors_new 
+
+```
+
+
+Now after transformation and cleaning of the email ID's of the authors, I am going to map each email unique code to organization/university name in below chunk of code.   
+### Mapping the email urls to the Organizations names. ###
+
+```{r}
+Authors[ , "Organization"] <- ""
+# Loops to compare cleaned email id codes and university names
+# i iterates for each record in authors dataset.
+# j iterates for each record in university dictionary.
+for (i in 1:12065)
+{
+    for(j in 1:225)
+        {
+        if(length(grep(universities_dataset[j,2], Authors[i,6])))
+            {
+            Authors[i,7] <- as.character(universities_dataset[j,1])
+               break
+            }
+        }
+}
+# Filtering any blank email addressess if found
+Cleaned_Authors_new <- filter(Authors, !grepl("^$", Organization))
+
+```
+
+Now after getting the names of the organization, taking unique entries based on year, author and organization name. And then counting papers published by each organization every year.   
+\newpage
+### Grouping and counting Organization paper by year ###
+```{r}
+# Taking only relevant columns
+Cleaned_Authors_new <- Cleaned_Authors_new[,c(1,2,5,7)]
+# Filtering unique values based on Author, Year and Organization columns.
+Cleaned_Authors_new1 <- unique( Cleaned_Authors_new[ , c(2,3,4) ] )
+# Counting total papers published by each Organizations every year
+Counter_Organization <- count_(Cleaned_Authors_new1, c('Year', 'Organization'))
+# Here's the structure of Count dataset.
+str(Counter_Organization)
+```
+
+
+Taking sum for total papers published by each organization in the whole span of time in the NIPS conference. And then just taking top 10 organization/university names to plot the graphs in further step.
+
+    
+### Performing final transformation in datasets. ###
+```{r}
+## max papers by an organization
+# Summing the records for each organization for the whole span of time.
+Organization_Total_papers <- aggregate(Counter_Organization$n, by=list(Category=Counter_Organization$Organization), FUN=sum)
+# Changing the names of columns from default values
+colnames(Organization_Total_papers) <- c('Organization','n')
+# Taking top 10 organization from all the years
+Max_papers <- Organization_Total_papers %>% top_n(10, n) 
+# Ordering the records in decreasing form.
+Max_papers <- Max_papers[order(Max_papers$n,decreasing = T),]
+# Making rownames empty just for removing random values in row numbers.
+rownames(Max_papers) <- NULL
+# Changing the name of the count column to Total_Papers
+colnames(Max_papers)[2] <- 'Total_Papers'
+
+```
+
+\newpage
+
+Results
+============
+
+Graph plotting for papers published per year
+---------------------
+
+Graph is plotted between Year and Total papers published each year.     
+* Note: There is no need to clean the dataset "year_dataset" which contains Papers published each year because it is perfectly collected through the python scripts.
+
+```{r, echo= FALSE}
+ggplot(data=year_dataset, aes(x=Year, y=Total_papers, fill=Year)) +
+    geom_bar(colour="#D62E01", fill="#FF9700", stat="identity") +
+    xlab("Year") + ylab("Total Papers") +
+    ggtitle("Papers published each year in NIPS conference")
+
+```
+
+
+Analysis of the graph     
+---------------------
+Above graph shows how number of papers have increased over time. Specifically after year 2006-2007 the papers published each year were almost kind of exponential in nature, while before that, only in year 1990 and 2001 there was a substantial increase in number of papers publsihed.
+
+\newpage
+Graph representing Organizations that published most number of papers in NIPS Conference.
+---------------------
+
+
+```{r, echo = FALSE}
+p <- ggplot(data=Max_papers, aes(x=Organization, y=Total_Papers)) +
+    geom_bar(colour="#F5FC01", fill="#A9E801", stat="identity") +
+    xlab("Organizations") + ylab("Total Papers") +
+    ggtitle("Total Papers by most published Organizations")
+p + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+```
+
+Analysis of the graph    
+---------------------
+Above graph shows how some of the organizations/university are doing persistence research in machine learning and artificial intelligence over years. Also we can interpret from the above graph that the unievrsities such as "MIT", "CMU", "University of california, Berkeley" and "Stanford" are the most contributing universities in the field of machine learning, artificial intelligence and reltaed fields.
+\newpage
+
+Limitations:
+============
+There are two limitations that were found during the study. They are as follows:    
+1. Conference’ beginning years email id’s were not properly gathered due to different format of pdfs. Hence some year email ids used to map the paper to the organization were not been proper.    
+2. Also the Organization/University dictionary used for mapping the names of Organizations to the appropriate email ID’s contain just around 230 , although the organizations that published papers in the conference were much more than 230. Hence there were around 10% of records that were being filtered due to that.
+
+
+References:
+============
+1. https://nips.cc
+2. http://academic.research.microsoft.com/RankList?entitytype=3&topDomainID=2&subDomainID=6
+3. https://github.com/benhamner/nips-2015-papers 
+
+

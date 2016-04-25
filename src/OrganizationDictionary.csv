@@ -1,0 +1,226 @@
+University_name,code
+Stanford,stanford.edu
+MIT,mit.edu
+CMU,cmu.edu
+Google,google.com
+Gmail,gmail.com
+Yahoo,yahoo
+Facebook,fb.com
+Georgia Tech,gatech.edu
+New York University,nyu.edu
+"University of California, Santa barbara",ucsb.edu
+Columbia University in New York,columbia.edu
+University of texas at Austin,utexas.edu
+University of Wisconsin-Madison,wisc.edu
+University of North Carolina at Chapell Hill,unc.edu
+Rutgers University,rutgers.edu
+UCL,ucl.ac.uk
+Center of Advanced European Studies and Research,caesar.de
+Toyota Technological Institute at Chicago,ttic.edu
+The University of Adelaide,adelaide.edu
+Peking University,pku.edu
+Harvard University,harvard.edu
+Paypal,paypal.com
+University of Michigan,umich.edu
+University of Illinois Urbana-Champaign,illinois.edu
+University of California Davis,ucdavis.edu
+Rensselaer Polytechnic Institute,rpi.edu
+French Institute for Research in Computer Science and Automation,inria.fr
+Duke University,duke.edu
+University of Georgia,uga.edu
+University Paderborn,upb.de
+Politechnika Pozna?ska,put.poznan.pl
+Aalto University,aalto.fi
+University of Helsinki,helsinki.fi
+University of Tokyo,u-tokyo.ac.jp
+IIT Kharagpur,iitk.ac.in
+National University of Singapore,nus.edu
+"University of Caliornia, Berkeley",berkeley.edu
+"Stonk Brook University, New york",stonybrook.edu
+National Institute of Informatics,nii.ac.jp
+Hong Kong Observatory,hko.gov.hk
+Sense Time,sensetime.com
+University of Tehran,ut.ac.ir
+IBM,ibm.com
+University of Texas at Dallas,utdallas.edu
+University of Alberta,ualberta
+Tsinghua university,tsinghua.edu.cn
+Technion Israel Institute of Technology,technion.ac.il
+ENS Paris,ens.fr
+Chalmers University of Technology,chalmers.se
+Rochester,rochester.edu
+"Indian Institute of Science, bangalore",iisc.ernet.in
+Microsoft,microsoft.com
+Cornell,cornell.edu
+Purdue,purdue.edu
+Nvidia,nvidia.com
+Oxford,ox.ac.uk
+University of Minnesota Twin Cities,umn.edu
+University of Warwick,warwick.ac.uk
+Brown University,brown.edu
+Paris Dauphine University,dauphine.fr
+Adobe,adobe.com
+University of Montreal,umontreal.ca
+Swiss Federal Institute of Technology in Zurich ,ethz.ch
+Technical University of Berlin,tu-berlin
+Nagoya Institute of Technology,nitech.ac.jp
+Xerox,xerox.com
+Nanjing University,nju.edu
+Washington,washington.edu
+"University of California, Los Angeles",ucla.edu
+California Institute of Technology,caltech.edu
+Princeton,princeton.edu
+University of Pennsylvania,upenn.edu
+John Hopkins University,jhu.edu
+Johns Hopkins Bloomberg School of Public Health,jhsph.edu
+Yale University,yale.edu
+Francesco Orabona,orabona.com
+Icahn School of Medicine at Mount Sinai,mssm.edu
+LIP6 Laboratory,lip6.fr
+Hong Kong Baptist University,hkbu.edu.hk
+"Unviersity of California, Irvine",uci.edu
+Unviersity of Toronto,toronto.edu
+Heidelberg University,uni-heidelberg.de
+University of Geneva,unige.ch
+Los Alamos National Lab,lanl.gov
+Istituto Italiano di Tecnologia,iit.it
+Google Deepmind,deepmind.com
+Michigan State University,msu.edu
+Dalle Molle Institute for Artificial Intelligence Research,idisia.ch
+Samsung,samsung.com
+University of Massachusetts Amherst,umass.edu
+Freie University Berlin,fu-berlin.de
+Hebrew University of Jerusalem,huji.ac.il
+Comcast,comcast.com
+Disney Research,disneyresearch.com
+Arizona State University,asu.edu
+Max Planck Society,mpg.de
+Ohio State unviersity,ohio-state.edu
+"NLPR, INSTITUTE OF AUTOMATION, CHNESE ACADEMY OF SCIENCES",nlpr.ia.ac.cn
+University at Buffalo,buffalo.edu
+Technische Universitat Darmstadt,ias.tu-darmstadt.de
+"University of California, San Diego",ucsd.edu
+Technicolor,technicolor.com
+University of Washington,uw.edu
+"University of Bonn, Germany",uni-bonn.de
+Ghent University,ugent.be
+"McGill University, Canada",mcgill.ca
+University of Toronto,utoronto.ca
+Sanger Lab,sangerlab.net
+University of Cambridge,cam.ac.uk
+Case Western Reserve University,case.edu
+Boston University,bu.edu
+Hong Kong University of Science and Technology,ust.hk
+The Institute of Statistical Mathematics,ism.ac.jp
+Sun Yat-sen University,sysu.edu.cn
+City University of Hong Kong,cityu.edu.hk
+Texas Instruments,ti.com
+NEC Labs,nec-labs.com
+Zhejiang University,zju.edu.cn
+Ghent University,ugent.be
+Sabanci University,sabanciuniv.edu
+Simon Fraser University,sfu.ca
+AOL,aol.com
+The Fostering Network,foster.net
+University of Western Ontario,uwo.ca
+Nikon,nikon.co.jp
+Tokyo Institute of Technology,titech.ac.jp
+Pompeu Fabra University,upf.edu
+University of Edinburgh,ed.ac.uk
+National ICT Australia,nicta.com.au
+Experian,experian.com
+Expedia,expedia.com
+University of Chicago,uchicago.edu
+HES-SO Geneva,hesge.ch
+Ecole polytechnique Federale de Lausanne,epfl.ch
+Weizmann Institute of Science,weizmann.ac.il
+GIPSA Lab,gipsa-lab.fr
+BETHGE LAB,bethgelab.org
+Telecom ParisTech,telecom-paristech.fr
+University of Amsterdam,uva.nl
+University Wroclawski,wroc.pl
+Future University Hakodate,fun.ac.jp
+Nagoya University,nagoya-u.ac.jp
+Bristol University,bristol.ac.uk
+KAIST,kaist.ac.kr
+University of Technology Sydney,uts.edu.au
+University of Southampton,soton.ac.uk
+The University of Sydney,sydney.edu.au
+Iowa State University,iastate.edu
+Imperial College London,imperial.ac.uk
+Virginia Tech,vt.edu
+Nara Institute of Science and Technology,is.naist.jp
+Nippon Labs,lab.ntt.co.jp
+University of New South Wales,unsw.edu.au
+Dartmouth College,dartmouth.edu
+Ben-Gurion University of the Negev,bgu.ac.il
+Pohang University of Science and Technology,postech.ac.kr
+Weizmann Institute of Science,weizmann.ac.il
+University at Jean Monnet,univ-st-etienne.fr
+Institute of Bioinformatics,jku.at
+Dalle Molle Institute for Artificial Intelligence Research,idsia.ch
+Aix-Marseille University,univ-amu.fr
+Humboldt University of Berlin,hu-berlin.de
+Shell,shell.com
+Supelec University,supelec.fr
+"University of California, Santa Cruz",ucsc.edu
+Macau Polytechnic Institute,ipm.edu.mo
+University of Freiburg,uni-freiburg.de
+Royal Institute of Technology,kth.se
+University of Edinburgh,ed.ac.uk
+Tel Aviv University,tau.ac.il
+Boston College,bc.edu
+Maastro,maastro.nl
+IIT Delhi,iitd.ac.in
+Pennsylvania State University,psu.edu
+Institute of Science and Technology Austria,ist.ac.at
+Syracuse University,syr.edu
+Max Planck Institute for Software Systems,mpi-sws.org
+Ecole normale superieure de Cachan,ens-cachan.fr
+"University of Maryland, College Park",umd.edu
+Southeast University,seu.edu.cn
+University of Manitoba,umanitoba.ca
+Simons Foundation,simonsfoundation.org
+University of British Columbia,ubc.ca
+Washington University in St. Louis,wustl.edu
+University of Illinois at Chicago,uic.edu
+Saarland University,uni-saarland.de
+University of Colorado Boulder,colorado.edu
+Ecole polytechnique de Montreal,polymtl.ca
+Kyoto University,kyoto-u.ac.jp
+University of Zaragoza,unizar.es
+Idiap Research Institute,idiap.ch
+University of Basel,unibas.ch
+University of Utah,utah.edu
+Banner Health,bannerhealth.com
+University of Milan,unimi.it
+National Institute of Standards and Technology,nist.gov
+Universidade de Lisboa,utl.pt
+Osaka University,sanken.osaka-u.ac.jp
+University of Waterloo,uwaterloo.ca
+Oregon State University,oregonstate.edu
+Northwestern University,northwestern.edu
+"University of Maryland, College Park",umd.edu
+Rice University,rice.edu
+University of British Columbia,ubc.ca
+Computational Biology Research Center,cbrc.jp
+Graz University of Technology,tugraz.at
+University of Illinois Urbana-Champaign,uiuc.edu
+Oxford Brookes University,brookes.ac.uk
+University of Southern California,usc.edu
+University of Leuven,kuleuven.be
+University of Hawaii,hawaii.edu
+University of Pittsburgh,pitt.edu
+University of Ottawa,uottawa.ca
+RIKEN Brain Science Institute,brain.riken.jp
+"University of California, San Francisco",ucsf.edu
+Fraunhofer Institute,first.fhg.de
+The University of Sydney,syd.edu.au
+Oregon Health & Science University,ogi.edu
+University of York,york.ac.uk
+Salk Institute for Biological Studies,salk.edu
+Australian National University,anu.edu.au
+Aalto University,hut.fi
+University of Duisburg-Essen,uni-duisburg.de
+TRL,trl.oz.au
+Siemens,siemens.de
